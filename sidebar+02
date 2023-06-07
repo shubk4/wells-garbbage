@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stylish Sidebar Example</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #333;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      transition: left 0.3s ease;
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .sidebar a:hover {
+      background-color: #555;
+    }
+    .sidebar .toggle-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 40px;
+      height: 40px;
+      background-color: #555;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 2;
+    }
+    .sidebar .toggle-btn.open {
+      transform: translateX(250px);
+    }
+
+    /* Content Styles */
+    .content {
+      padding: 20px;
+      transition: margin-left 0.3s ease;
+    }
+    .content.open {
+      margin-left: 250px;
+    }
+    .content h1 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="toggle-btn" onclick="toggleSidebar()">
+      <span>&#9776;</span>
+    </div>
+  </div>
+  <div class="content" id="content">
+    <h1>Main Content</h1>
+    <p>This is the main content area of the page.</p>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      var sidebar = document.getElementById("sidebar");
+      var content = document.getElementById("content");
+
+      sidebar.classList.toggle("open");
+      content.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
