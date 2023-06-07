@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pagination Example</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .pagination button {
+      background-color: #f2f2f2;
+      border: 1px solid #ddd;
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background-color: #ddd;
+    }
+    .pagination .active {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <table id="myTable">
+    <!-- Table headers -->
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+        <th>Column 6</th>
+        <th>Column 7</th>
+        <th>Column 8</th>
+        <th>Column 9</th>
+        <th>Column 10</th>
+        <th>Column 11</th>
+        <th>Column 12</th>
+      </tr>
+    </thead>
+    <!-- Table rows -->
+    <tbody>
+      <!-- Your table row data here -->
+      <!-- Example row -->
+      <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+        <td>Data 4</td>
+        <td>Data 5</td>
+        <td>Data 6</td>
+        <td>Data 7</td>
+        <td>Data 8</td>
+        <td>Data 9</td>
+        <td>Data 10</td>
+        <td>Data 11</td>
+        <td>Data 12</td>
+      </tr>
+      <!-- Repeat the above row for 100 times -->
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button onclick="previousPage()">Previous</button>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    var table = document.getElementById("myTable");
+    var currentPage = 0;
+    var rowsPerPage = 10; // Number of rows to display per page
+
+    function showPage(page) {
+      var start = page * rowsPerPage + 1;
+      var end = (page + 1) * rowsPerPage;
+
+      for (var i = 1; i < table.rows.length; i++) {
+        table.rows[i].style.display = (i >= start && i <= end) ? "table-row" : "none";
+      }
+    }
+
+    function previousPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < Math.ceil((table.rows.length - 1) / rowsPerPage) - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    showPage(currentPage); // Show the initial page
+  </script>
+</body>
