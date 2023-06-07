@@ -1,0 +1,29 @@
+function sortTable(column) {
+  if (currentColumn === column) {
+    ascending = !ascending;
+  } else {
+    currentColumn = column;
+    ascending = true;
+  }
+
+  var rows = Array.from(table.rows).slice(1); // Exclude header row
+  rows.sort(function(a, b) {
+    var aValue = a.cells[column].innerText;
+    var bValue = b.cells[column].innerText;
+
+    // Sort column 1 and column 2 based on text
+    if (column === 0 || column === 1) {
+      return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+    }
+    // Sort other columns based on numerical data
+    else {
+      var aNumber = parseFloat(aValue);
+      var bNumber = parseFloat(bValue);
+      return ascending ? (aNumber - bNumber) : (bNumber - aNumber);
+    }
+  });
+
+  for (var i = 0; i < rows.length; i++) {
+    table.tBodies[0].appendChild(rows[i]);
+  }
+}
