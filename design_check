@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Red Header with Sidebar Example</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: red;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar {
+      background-color: #333;
+      color: white;
+      width: 250px;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      width: 50%;
+      float: left;
+      box-sizing: border-box;
+      background: linear-gradient(to right, #FF7F50, #FFD700);
+      color: white;
+    }
+    
+    .content:nth-child(2n) {
+      background: linear-gradient(to right, #4B0082, #8A2BE2);
+    }
+    
+    h2 {
+      margin-top: 0;
+    }
+    
+    p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Sidebar</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="header">
+    <h1>Welcome to the Red Header</h1>
+  </div>
+  <div class="content">
+    <h2>Content 1</h2>
+    <p>This is the first content area.</p>
+  </div>
+  <div class="content">
+    <h2>Content 2</h2>
+    <p>This is the second content area.</p>
+  </div>
+</body>
+</html>
