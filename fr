@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Red Header with Sidebar Example</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #d71e28;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar {
+      background-color: #333;
+      color: white;
+      width: 250px;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      transition: left 0.3s ease-in-out;
+    }
+    
+    .sidebar.open {
+      left: 0;
+    }
+
+    .content {
+      margin-left: 0;
+      padding: 20px;
+      width: 50%;
+      float: left;
+      box-sizing: border-box;
+      background: linear-gradient(to right, #f27357, #fcaf45);
+      color: white;
+      transition: margin-left 0.3s ease-in-out;
+    }
+    
+    .content.open {
+      margin-left: 250px;
+    }
+    
+    .content:nth-child(2n) {
+      background: linear-gradient(to right, #7928a1, #bf3385);
+    }
+    
+    h2 {
+      margin-top: 0;
+    }
+    
+    p {
+      margin-bottom: 0;
+    }
+    
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <h2>Sidebar</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="header">
+    <h1>Welcome to the Red Header</h1>
+    <div class="toggle-btn" onclick="toggleSidebar()">
+      &#9776;
+    </div>
+  </div>
+  <div class="content" id="content">
+    <h2>Content 1</h2>
+    <p>This is the first content area.</p>
+  </div>
+  <div class="content" id="content">
+    <h2>Content 2</h2>
+    <p>This is the second content area.</p>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      var sidebar = document.getElementById("sidebar");
+      var content = document.getElementById("content");
+
+      sidebar.classList.toggle("open");
+      content.classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
