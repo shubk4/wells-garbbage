@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Paper.css'; // Import the CSS file with the provided styles
 
 const Paper = () => {
   const [folded, setFolded] = useState(true);
@@ -19,14 +20,14 @@ const Paper = () => {
   return (
     <div className={`paper ${folded ? 'folded-paper' : 'unfolded-paper'} ${unfolding && 'unfolding'}`}>
       <div className="second-part"></div>
-      {folded && (
-        <button className="unfold-button" onClick={handleUnfold}>
-          Unfold
-        </button>
-      )}
       {!folded && (
         <button className="fold-button" onClick={handleFold}>
           Fold
+        </button>
+      )}
+      {folded && (
+        <button className="unfold-button" onClick={handleUnfold}>
+          Unfold
         </button>
       )}
     </div>
@@ -34,6 +35,7 @@ const Paper = () => {
 };
 
 export default Paper;
+
 
 
 
