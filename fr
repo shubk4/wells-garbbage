@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FoldablePaper.css';
 
 const FoldablePaper = () => {
   const [unfolded, setUnfolded] = useState(false);
@@ -13,7 +14,7 @@ const FoldablePaper = () => {
 
   return (
     <div className={`paper ${unfolded ? 'unfolded-paper' : 'folded-paper'}`}>
-      <div className="second-part"></div>
+      <div className={`second-part ${unfolded ? 'unfolded' : ''}`}></div>
       {unfolded && (
         <button className="fold-button" onClick={handleFold}>
           Fold
@@ -29,6 +30,7 @@ const FoldablePaper = () => {
 };
 
 export default FoldablePaper;
+
 
 
 
@@ -78,6 +80,13 @@ export default App;
   width: 0;
   background-color: green;
   transition: width 0.4s ease-in-out;
+}
+
+.fold-button,
+.unfold-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .fold-button,
