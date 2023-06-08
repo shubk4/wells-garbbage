@@ -75,27 +75,17 @@ export default App;
   transition: height 0.4s ease-in-out, width 0.4s ease-in-out;
 }
 
-.unfolded-paper .second-part {
+.unfolded-paper.unfolding {
+  width: 300px;
+}
+
+.second-part {
   height: 100%;
   width: 0;
   background-color: green;
   transition: width 0.4s ease-in-out;
 }
 
-.folded-paper.folded .second-part {
-  width: 0;
-}
-
-.folded-paper.unfolding .second-part {
+.unfolded-paper.unfolding .second-part {
   width: 100px;
-  transition: width 0.4s ease-in-out;
 }
-
-.fold-button,
-.unfold-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-
