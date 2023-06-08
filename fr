@@ -1,35 +1,40 @@
 import React, { useState } from 'react';
-import './FoldablePaper.css';
 
-const FoldablePaper = () => {
-  const [unfolded, setUnfolded] = useState(false);
+const Paper = () => {
+  const [folded, setFolded] = useState(true);
+  const [unfolding, setUnfolding] = useState(false);
 
   const handleFold = () => {
-    setUnfolded(false);
+    setFolded(true);
+    setUnfolding(false);
   };
 
   const handleUnfold = () => {
-    setUnfolded(true);
+    setFolded(false);
+    setTimeout(() => {
+      setUnfolding(true);
+    }, 1000); // Delay to match the unfolding animation duration
   };
 
   return (
-    <div className={`paper ${unfolded ? 'unfolded-paper' : 'folded-paper'}`}>
-      <div className={`second-part ${unfolded ? 'unfolded' : ''}`}></div>
-      {unfolded && (
-        <button className="fold-button" onClick={handleFold}>
-          Fold
-        </button>
-      )}
-      {!unfolded && (
+    <div className={`paper ${folded ? 'folded-paper' : 'unfolded-paper'} ${unfolding && 'unfolding'}`}>
+      <div className="second-part"></div>
+      {folded && (
         <button className="unfold-button" onClick={handleUnfold}>
           Unfold
+        </button>
+      )}
+      {!folded && (
+        <button className="fold-button" onClick={handleFold}>
+          Fold
         </button>
       )}
     </div>
   );
 };
 
-export default FoldablePaper;
+export default Paper;
+
 
 
 
