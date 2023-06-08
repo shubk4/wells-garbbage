@@ -84,6 +84,29 @@ export default App;
   width: 300px;
 }
 
+
+
+
+
+.fold-button,
+.unfold-button {
+  display: inline-block;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #f1f1f1;
+  border: none;
+  cursor: pointer;
+}
+
+.fold-button {
+  margin-right: 10px;
+}
+
+.unfold-button {
+  margin-left: 10px;
+}
+
+
 .second-part {
   height: 100%;
   width: 0;
