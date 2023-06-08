@@ -64,6 +64,9 @@ export default App;
 
 .paper {
   position: relative;
+}
+
+.folded-paper {
   height: 100px;
   width: 100px;
   background-color: red;
@@ -71,24 +74,29 @@ export default App;
   transition: height 0.4s ease-in-out, width 0.4s ease-in-out;
 }
 
-.folded-paper {
-  height: 100px;
-  width: 100px;
-}
-
 .unfolded-paper {
-  height: 200px;
-  width: 100px;
+  height: 200px; /* Set the final height as desired */
+  width: 100px; /* Set the initial width as desired */
+  background-color: red;
   transition: height 0.4s ease-in-out, width 0.4s ease-in-out;
 }
 
-.unfolded-paper.unfolding {
-  width: 300px;
+.unfolding {
+  width: 300px; /* Set the final width as desired */
+  transition: width 0.4s ease-in-out;
 }
 
+.second-part {
+  height: 100%;
+  width: 0;
+  background-color: green;
+  transition: width 0.4s ease-in-out;
+}
 
-
-
+.unfolding .second-part {
+  width: 100px; /* Set the final width of the green part as desired */
+  transition: width 0.4s ease-in-out;
+}
 
 .fold-button,
 .unfold-button {
@@ -107,6 +115,7 @@ export default App;
 .unfold-button {
   margin-left: 10px;
 }
+
 
 
 .second-part {
