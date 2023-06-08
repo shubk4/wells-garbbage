@@ -50,3 +50,41 @@ const App = () => {
 
 export default App;
 
+
+
+
+.paper {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  overflow: hidden;
+  transition: height 0.4s ease-in-out, width 0.4s ease-in-out;
+}
+
+.folded-paper {
+  height: 100px;
+  width: 100px;
+}
+
+.unfolded-paper {
+  height: 200px;
+  width: 100px;
+  transition: height 0.4s ease-in-out, width 0.4s ease-in-out;
+}
+
+.unfolded-paper .second-part {
+  height: 100%;
+  width: 0;
+  background-color: green;
+  transition: width 0.4s ease-in-out;
+}
+
+.fold-button,
+.unfold-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
