@@ -38,17 +38,40 @@
       width: 50%;
       float: left;
       box-sizing: border-box;
-      background: linear-gradient(to right, #f27357, #fcaf45);
+      background: linear-gradient(45deg, #f27357, #fcaf45);
       color: white;
       transition: margin-left 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
     }
     
     .content.open {
       margin-left: 250px;
     }
     
+    .content:before,
+    .content:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: inherit;
+      z-index: -1;
+    }
+    
+    .content:before {
+      right: 50%;
+      transform: skewX(-45deg);
+    }
+    
+    .content:after {
+      left: 50%;
+      transform: skewX(45deg);
+    }
+    
     .content:nth-child(2n) {
-      background: linear-gradient(to right, #7928a1, #bf3385);
+      background: linear-gradient(45deg, #7928a1, #bf3385);
     }
     
     h2 {
